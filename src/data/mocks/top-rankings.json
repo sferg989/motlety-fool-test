@@ -1,0 +1,262 @@
+[
+  {
+    "currentRank": {
+      "asOfDate": "2024-10-21",
+      "value": 1
+    },
+    "instrument": {
+      "exchange": "NYSE",
+      "instrumentId": 289026,
+      "name": "Paycom Software",
+      "symbol": "PAYC",
+      "sector": "Information Technology",
+      "quoteHistoricalSummary": {
+        "oneYearReturnPercent": -34.666050903345216,
+        "fiveYearReturnPercent": -12.787015336716728
+      },
+      "quote": {
+        "currentPrice": {
+          "amount": 166.68,
+          "currencyCode": "USD"
+        },
+        "dividendYield": 0.0089,
+        "lastTradeDate": "2024-10-22T17:08:59Z",
+        "marketCap": {
+          "amount": 9638305400,
+          "currencyCode": "USD"
+        },
+        "revenueGrowth": 14.1722486133681,
+        "grossMargin": 73.9873282831663,
+        "peRatio": 20.23,
+        "beta5y": 1.4667,
+        "percentChange": -0.006790000000000001,
+        "priceChange": {
+          "amount": -1.14
+        }
+      },
+      "quantScore": {
+        "analystScore": 98.89,
+        "capsScore": 95.73,
+        "rank": 1,
+        "recencyScore": 97.79,
+        "serviceScore": 98.82,
+        "trend": "up",
+        "value": 97.80529
+      }
+    },
+    "latestRecommendation": {
+      "path": "/4192/coverage/recommendations/2024/10/11/buy-more-paycom-an-inexpensive-valuation/",
+      "productId": 4192,
+      "publishAt": "2024-10-11T17:00:00Z",
+      "uuid": "404042b0-d76b-4747-b357-0b913a317596"
+    }
+  },
+  {
+    "currentRank": {
+      "asOfDate": "2024-10-21",
+      "value": 2
+    },
+    "instrument": {
+      "exchange": "NASDAQ",
+      "instrumentId": 205639,
+      "name": "Axon Enterprise",
+      "symbol": "AXON",
+      "sector": "Industrials",
+      "quoteHistoricalSummary": {
+        "oneYearReturnPercent": 110.5567675234753,
+        "fiveYearReturnPercent": 726.7014244483755
+      },
+      "quote": {
+        "currentPrice": {
+          "amount": 450.8075,
+          "currencyCode": "USD"
+        },
+        "dividendYield": 0,
+        "lastTradeDate": "2024-10-22T17:08:38Z",
+        "marketCap": {
+          "amount": 33553477700,
+          "currencyCode": "USD"
+        },
+        "revenueGrowth": 32.5902351004435,
+        "grossMargin": 59.8118390922678,
+        "peRatio": 117.29,
+        "beta5y": 1.1456,
+        "percentChange": 0.01538,
+        "priceChange": {
+          "amount": 6.8275
+        }
+      },
+      "quantScore": {
+        "analystScore": 97.63,
+        "capsScore": 94.85,
+        "rank": 2,
+        "recencyScore": 97.42,
+        "serviceScore": 95.64,
+        "trend": "down",
+        "value": 96.38206
+      }
+    },
+    "latestRecommendation": {
+      "path": "/1255/recommendations/2024/01/25/buy-axon-enterprise-protecting-life-at-home-and-ab/",
+      "productId": 1255,
+      "publishAt": "2024-01-25T13:00:00Z",
+      "uuid": "a94c4c0f-1f43-402b-99a2-be03b2262346"
+    }
+  },
+  {
+    "currentRank": {
+      "asOfDate": "2024-10-21",
+      "value": 3
+    },
+    "instrument": {
+      "exchange": "NYSE",
+      "instrumentId": 289415,
+      "name": "Globant",
+      "symbol": "GLOB",
+      "sector": "Information Technology",
+      "quoteHistoricalSummary": {
+        "oneYearReturnPercent": 23.89978938033478,
+        "fiveYearReturnPercent": 151.47935650804362
+      },
+      "quote": {
+        "currentPrice": {
+          "amount": 217.73,
+          "currencyCode": "USD"
+        },
+        "dividendYield": 0,
+        "lastTradeDate": "2024-10-22T17:05:53Z",
+        "marketCap": {
+          "amount": 9678767900,
+          "currencyCode": "USD"
+        },
+        "revenueGrowth": 19.0130029798496,
+        "grossMargin": 31.6385543434393,
+        "peRatio": 56.93,
+        "beta5y": 1.4325,
+        "percentChange": -0.025990000000000003,
+        "priceChange": {
+          "amount": -5.81
+        }
+      },
+      "quantScore": {
+        "analystScore": 90.37,
+        "capsScore": 99.41,
+        "rank": 3,
+        "recencyScore": 99.85,
+        "serviceScore": 95.86,
+        "trend": "up",
+        "value": 96.372685
+      }
+    },
+    "latestRecommendation": {
+      "path": "/4660/coverage/recommendations/2024/10/17/buy-globant-decentralized-ai-consulting/",
+      "productId": 4660,
+      "publishAt": "2024-10-17T13:00:00Z",
+      "uuid": "2ca17f1e-2ee5-4c5c-ac4f-285ccf019973"
+    }
+  },
+  {
+    "currentRank": {
+      "asOfDate": "2024-10-21",
+      "value": 4
+    },
+    "instrument": {
+      "exchange": "NASDAQ",
+      "instrumentId": 224257,
+      "name": "Tesla",
+      "symbol": "TSLA",
+      "sector": "Consumer Discretionary",
+      "quoteHistoricalSummary": {
+        "oneYearReturnPercent": 3.236001698193304,
+        "fiveYearReturnPercent": 1188.970447444431
+      },
+      "quote": {
+        "currentPrice": {
+          "amount": 216.7435,
+          "currencyCode": "USD"
+        },
+        "dividendYield": 0,
+        "lastTradeDate": "2024-10-22T17:09:36Z",
+        "marketCap": {
+          "amount": 699146964000,
+          "currencyCode": "USD"
+        },
+        "revenueGrowth": 1.37193176500617,
+        "grossMargin": 17.7196332277219,
+        "peRatio": 61.46,
+        "beta5y": 1.5919,
+        "percentChange": -0.00963,
+        "priceChange": {
+          "amount": -2.1065
+        }
+      },
+      "quantScore": {
+        "analystScore": 99.11,
+        "capsScore": 85.57,
+        "rank": 4,
+        "recencyScore": 99.56,
+        "serviceScore": 99.41,
+        "trend": "down",
+        "value": 95.91175
+      }
+    },
+    "latestRecommendation": {
+      "path": "/4660/coverage/recommendations/2024/10/08/buy-tesla-driving-toward-an-ai-future/",
+      "productId": 4660,
+      "publishAt": "2024-10-08T13:00:00Z",
+      "uuid": "ee25138c-0365-4ebb-8f16-72ff5fafd6db"
+    }
+  },
+  {
+    "currentRank": {
+      "asOfDate": "2024-10-21",
+      "value": 5
+    },
+    "instrument": {
+      "exchange": "NASDAQ",
+      "instrumentId": 335416,
+      "name": "PayPal",
+      "symbol": "PYPL",
+      "sector": "Information Technology",
+      "quoteHistoricalSummary": {
+        "oneYearReturnPercent": 50.88967971530249,
+        "fiveYearReturnPercent": -16.63907284768212
+      },
+      "quote": {
+        "currentPrice": {
+          "amount": 81.075,
+          "currencyCode": "USD"
+        },
+        "dividendYield": 0,
+        "lastTradeDate": "2024-10-22T17:09:39Z",
+        "marketCap": {
+          "amount": 82358904800,
+          "currencyCode": "USD"
+        },
+        "revenueGrowth": 10.2375625865559,
+        "grossMargin": 39.6115191341322,
+        "peRatio": 19.52,
+        "beta5y": 1.3219,
+        "percentChange": 0.00639,
+        "priceChange": {
+          "amount": 0.515
+        }
+      },
+      "quantScore": {
+        "analystScore": 99.63,
+        "capsScore": 86.67,
+        "rank": 5,
+        "recencyScore": 100,
+        "serviceScore": 97.19,
+        "trend": "up",
+        "value": 95.873275
+      }
+    },
+    "latestRecommendation": {
+      "path": "/4660/coverage/recommendations/2024/10/21/buy-paypal-a-new-chapter-is-beginning/",
+      "productId": 4660,
+      "publishAt": "2024-10-21T13:00:00Z",
+      "uuid": "7305d5cb-82de-4a25-b315-149dddbe3488"
+    }
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "202674": {
+      "current_price": 42360.87,
+      "high": 42436.99,
+      "low": 42144.4,
+      "change": 127.82,
+      "percent_change": 0.003027,
+      "currency": "USD",
+      "last_trade_date": "2024-10-30T14:51:20+00:00",
+  },
+  "202679": {
+      "current_price": 5839.16,
+      "high": 5847.07,
+      "low": 5811.28,
+      "change": 6.24,
+      "percent_change": 0.00107,
+      "currency": "USD",
+      "last_trade_date": "2024-10-30T14:51:20+00:00",
+  },
+  "202700": {
+      "current_price": 18732.5213,
+      "high": 18785.4949,
+      "low": 18630.5637,
+      "change": 19.7729,
+      "percent_change": 0.001057,
+      "currency": "USD",
+      "last_trade_date": "2024-10-30T14:51:21+00:00",
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "instrument": {
+    "id": "289026",
+    "quote": {
+      "currency": {
+        "code": "USD"
+      },
+      "dividendYield": 0.009,
+      "dailyRange": {
+        "max": {
+          "amount": 166.4
+        },
+        "min": {
+          "amount": 165.35
+        }
+      },
+      "currentPrice": {
+        "amount": 166.3899
+      },
+      "beta5y": 1.4663,
+      "marketCap": {
+        "amount": 9556751400
+      },
+      "fiftyTwoWeekRange": {
+        "max": {
+          "amount": 258.18
+        },
+        "min": {
+          "amount": 139.5
+        }
+      },
+      "grossMargin": 73.9873282831663,
+      "lastTradeDate": "2024-10-23T13:55:01Z",
+      "percentChange": -0.00006,
+      "priceChange": {
+        "amount": -0.0101
+      },
+      "shortInterestRatio": 0,
+      "annualDividend": {
+        "amount": 1.5
+      },
+      "extendedHoursChange": 0,
+      "extendedHoursDate": null,
+      "extendedHoursPercentChange": 0,
+      "extendedHoursPrice": 0,
+      "extendedHoursType": null,
+      "description": "Paycom Software sells a suite of cloud-based HR software that helps companies hire, manage, train, and pay their employees."
+    },
+    "quantScore": {
+      "trend": "up",
+      "value": 97.860505,
+      "serviceScore": 98.82,
+      "recencyScore": 97.79,
+      "pastScores": [
+        {
+          "value": 93.580435,
+          "asOfDate": "2024-07-22"
+        },
+        {
+          "value": 93.615805,
+          "asOfDate": "2024-04-22"
+        },
+        {
+          "value": 95.493865,
+          "asOfDate": "2024-01-22"
+        }
+      ],
+      "capsScore": 95.95,
+      "asOfDate": "2024-10-22",
+      "analystScore": 98.89
+    },
+    "quoteHistoricalSummary": {
+      "fiveYearReturnPercent": -17.302668699039728,
+      "sinceIPOReturnPercent": 996.3457253831124,
+      "benchmarkFiveYearReturnPercent": 94.37368138837135,
+      "benchmarkOneYearReturnPercent": 38.75129619585972,
+      "oneYearReturnPercent": -34.856810179462755,
+      "fiveYearAnnualizedReturnPercent": -3.7283757790420813,
+      "benchmarkFiveYearAnnualizedReturnPercent": 14.216143468503152,
+      "benchmarkSinceIPOReturnPercent": 217.48572072645683
+    },
+    "quoteFundamentals": {
+      "dynamic": {
+        "ceo": {
+          "data": [
+            {
+              "value": "Chad R. Richison"
+            }
+          ]
+        },
+        "marketCapPerEmployee": {
+          "data": [
+            {
+              "value": "1.31887"
+            }
+          ]
+        },
+        "website": {
+          "data": [
+            {
+              "value": "http://www.paycom.com"
+            }
+          ]
+        },
+        "marketCapitalization": {
+          "data": [
+            {
+              "value": "9638.3054",
+              "unit": "Millions"
+            }
+          ]
+        },
+        "numberOfEmployees": {
+          "data": [
+            {
+              "value": "7308"
+            }
+          ]
+        }
+      }
+    },
+    "symbol": "PAYC",
+    "exchange": "NYSE",
+    "name": "Paycom Software",
+    "instrumentId": 289026,
+    "peerInstruments": [
+      {
+        "instrumentId": 338635,
+        "name": "The Trade Desk",
+        "symbol": "TTD",
+        "quote": {
+          "currentPrice": {
+            "amount": 119.07,
+            "currencyCode": "USD"
+          },
+          "priceChange": {
+            "amount": 0.13,
+            "currencyCode": "USD"
+          }
+        }
+      },
+      {
+        "instrumentId": 335227,
+        "name": "Shopify",
+        "symbol": "SHOP",
+        "quote": {
+          "currentPrice": {
+            "amount": 81.385,
+            "currencyCode": "USD"
+          },
+          "priceChange": {
+            "amount": -0.225,
+            "currencyCode": "USD"
+          }
+        }
+      },
+      {
+        "instrumentId": 341308,
+        "name": "CrowdStrike",
+        "symbol": "CRWD",
+        "quote": {
+          "currentPrice": {
+            "amount": 304.16,
+            "currencyCode": "USD"
+          },
+          "priceChange": {
+            "amount": -4.35,
+            "currencyCode": "USD"
+          }
+        }
+      },
+      {
+        "instrumentId": 341090,
+        "name": "Zoom Video Communications",
+        "symbol": "ZM",
+        "quote": {
+          "currentPrice": {
+            "amount": 72.735,
+            "currencyCode": "USD"
+          },
+          "priceChange": {
+            "amount": 0.515,
+            "currencyCode": "USD"
+          }
+        }
+      }
+    ]
+  }
+}
+
+
+
+
+
+
+
+
+
+
+

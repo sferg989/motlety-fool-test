@@ -1,0 +1,30 @@
+name: Build & Deploy
+run-name: "Build & Deploy: ${{ inputs.deployment_enviroment || (contains(github.ref, 'refs/tags/') && 'prod') || (contains(github.ref, 'refs/heads/master') && 'staging') || (contains(github.ref, 'refs/heads/feature-') && 'feature') }}"
+
+on:
+  workflow_dispatch:
+    inputs:
+      deployment_enviroment:
+        description: 'Deployment Environment'
+        required: true
+        type: choice
+        options:
+          - feature
+          - staging
+          - prod
+  push:
+    branches:
+      - master
+      - feature-*
+
+jobs:
+  build:
+    name: "[${{ inputs.deployment_enviroment || (contains(github.ref, 'refs/tags/') && 'prod') || (contains(github.ref, 'refs/heads/master') && 'staging') || (contains(github.ref, 'refs/heads/feature-') && 'feature') }}] Build"
+    uses: themotleyfool/cloudops-shared-workflows/.github/workflows/build_images.yaml@v1
+    secrets: inherit
+    with:
+      app: next-js-template
+      deploymentKey: ${{ inputs.deployment_enviroment || (contains(github.ref, 'refs/tags/') && 'prod') || (contains(github.ref, 'refs/heads/master') && 'staging') || (contains(github.ref, 'refs/heads/feature-') && 'feature') }}
+      webhookTrigger: true
+      slackChannel: "#<SLACK_CHANNEL>"
+      unitTestCommands: ""

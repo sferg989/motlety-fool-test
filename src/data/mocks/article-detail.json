@@ -1,0 +1,100 @@
+{
+  "visibility": 100,
+  "publish_at": "2023-10-30T13:00:00Z",
+  "video_aired_date": null,
+  "created": "2023-10-30T13:00:04Z",
+  "modified": "2023-10-30T15:56:03Z",
+  "last_updated": "2023-10-30T15:56:02Z",
+  "path": "/4660/coverage/recommendations/2023/10/30/buy-bitcoin-cryptos-magnificent-one/",
+  "static_page": false,
+  "product_id": 4660,
+  "headline": "Buy Bitcoin: Crypto's Magnificent One",
+  "slug": "buy-bitcoin-cryptos-magnificent-one",
+  "primary_instrument_ids": [
+      343539
+  ],
+  "author_override": null,
+  "primary_author_id": 1320,
+  "recommendations": [
+      {
+          "uuid": "e9f89fe4-1292-4115-840f-6515be5794a2",
+          "prelevels_uuid": null,
+          "action": "Buy",
+          "action_date": "2023-10-30T00:00:00Z",
+          "options_strategy": null,
+          "instrument": {
+              "instrument_id": 343539,
+              "company_name": "Bitcoin",
+              "exchange": "CRYPTO",
+              "symbol": "BTC",
+              "asset_class": "Crypto",
+              "sector": {
+                  "sector_id": 4,
+                  "name": "Financials"
+              },
+              "industry": {
+                  "industry_id": 49,
+                  "name": "Consumer Finance"
+              },
+              "seo_name": "unknown",
+              "valid": true,
+              "benchmarks": [],
+              "links": {
+                  "self": "https://api.fool.com/hydra/v2/instruments/343539",
+                  "content": "https://api.fool.com/hydra/v2/content?instrument_ids=343539"
+              }
+          },
+          "rationale": [],
+          "allocation": "",
+          "portfolio_id": "IB-USA-Moneyball-Portfolio",
+          "portfolio_name": "(Real Money) The Motley Fool Moneyball Portfolio"
+      }
+  ],
+  "has_recommendation": true,
+  "sentiment": null,
+  "body": "<div class=\"border-primary-24 border-1px rounded py-4 px-24px\">\n<h4 class=\"mb-4\"><strong>Moneyball Scores for Bitcoin<br/></strong></h4>\n<div class=\"flex flex-row flex-wrap text-center gap-4 place-content-center\">\n<div class=\"flex-intital min-w-[134px] bg-primary-4 rounded px-4 pt-1 pb-2\"><span class=\"text-content-70 text-caption-regular\">Superscore</span><br/><span class=\"text-heading-h2 font-black\">93</span></div>\n<div class=\"flex-intital min-w-[134px] bg-primary-4 rounded px-4 pt-1 pb-2\"><span class=\"text-content-70 text-caption-regular\">Adoption</span><br/><span class=\"text-heading-h2 font-black\">98</span></div>\n<div class=\"flex-intital min-w-[134px] bg-primary-4 rounded px-4 pt-1 pb-2\"><span class=\"text-content-70 text-caption-regular\">Community</span><br/><span class=\"text-heading-h2 font-black\">94</span></div>\n<div class=\"flex-intital min-w-[134px] bg-primary-4 rounded px-4 pt-1 pb-2\"><span class=\"text-content-70 text-caption-regular\">Competitive Advantage</span><br/><span class=\"text-heading-h2 font-black\">95</span></div>\n<div class=\"flex-intital min-w-[134px] bg-primary-4 rounded px-4 pt-1 pb-2\"><span class=\"text-content-70 text-caption-regular\">Ecosystem</span><br/><span class=\"text-heading-h2 font-black\">97</span></div>\n<div class=\"flex-intital min-w-[134px] bg-primary-4 rounded px-4 pt-1 pb-2\"><span class=\"text-content-70 text-caption-regular\">Stability</span><br/><span class=\"text-heading-h2 font-black\">100</span></div>\n<div class=\"flex-intital min-w-[134px] bg-primary-4 rounded px-4 pt-1 pb-2\"><span class=\"text-content-70 text-caption-regular\">Leadership</span><br/><span class=\"text-heading-h2 font-black\">82</span></div>\n<div class=\"flex-intital min-w-[134px] bg-primary-4 rounded px-4 pt-1 pb-2\"><span class=\"text-content-70 text-caption-regular\">Compliance</span><br/><span class=\"text-heading-h2 font-black\">71</span></div>\n<div class=\"flex-intital min-w-[134px] bg-primary-4 rounded px-4 pt-1 pb-2\"><span class=\"text-content-70 text-caption-regular\">Performance</span><br/><span class=\"text-heading-h2 font-black\">93</span></div>\n<div class=\"flex-intital min-w-[134px] bg-primary-4 rounded px-4 pt-1 pb-2\"><span class=\"text-content-70 text-caption-regular\">Robustness</span><br/><span class=\"text-heading-h2 font-black\">99</span></div>\n<div class=\"flex-intital min-w-[134px] bg-primary-4 rounded px-4 pt-1 pb-2\"><span class=\"text-content-70 text-caption-regular\">Health</span><br/><span class=\"text-heading-h2 font-black\">88</span></div>\n<div class=\"flex-intital min-w-[134px] bg-primary-4 rounded px-4 pt-1 pb-2\"><span class=\"text-content-70 text-caption-regular\">Trustworthiness</span><br/><span class=\"text-heading-h2 font-black\">96</span></div>\n</div>\n<p class=\"mt-4 text-center text-body-regular\"><strong>Price at publish: $72,217.28</strong> <span class=\"text-content-50\">(as of 9:00 a.m. on Oct. 30)</span></p>\n</div>\n<h2>What Bitcoin Is</h2>\n<p><strong>Bitcoin </strong><span class=\"ticker\" data-id=\"343539\">(CRYPTO: BTC)</span> is an asset recorded on a decentralized network ledger that acts as a digital store of wealth. Using blockchain technology, Bitcoin's network allows users to transfer Bitcoin tokens among one another, effectively establishing Bitcoin as the most popular digital currency.</p>\n<h2>Why Bitcoin Is a <em>Motley Fool Moneyball Portfolio</em> Buy</h2>\n<h3>Moneyball/Cryptoball Score Insights</h3>\n<p>With Bitcoin, we've introduced our Cryptoball database for analyzing cryptocurrencies. As you can see, the scoring methodology is a bit different than it is for stocks. However, you'll see many of the same underlying ideas in both scoring systems as we aim to find the most attractive assets in whatever asset class we're researching.</p>\n<p>Bitcoin scores highly in every category under Cryptoball's scoring system, giving it an impressive Superscore of 92. High adoption rates and optimal stability have made Bitcoin the most trustworthy digital asset, and high levels of community engagement and technical robustness have given it what we see as a lasting competitive advantage over other cryptocurrencies. Slightly lower scores for leadership integrity and regulatory compliance reflect issues that just about every digital asset struggles with, and we see Bitcoin having done a better job than most of overcoming obstacles to make it more inviting for new users.</p>\n<h3>Bitcoin Has Established a Brand New Asset Category</h3>\n<p>Defying skeptics throughout its 15-year history, Bitcoin has firmly established itself as the recognized leader in the emerging cryptocurrency asset class. It's the most recognized, most highly valued, and most trusted cryptocurrency in the world, and the steady rise in adoption has been the key component that has driven its value up from less than a penny per token to its recent level just under $70,000.</p>\n<p>Along the way, Bitcoin has gained recognition even within the mainstream investing community as a legitimate investment. Even the U.S. Securities and Exchange Commission has recognized the steadily improving reputation of Bitcoin, approving spot Bitcoin exchange-traded funds early in 2023 that have opened up the digital asset to a whole new set of institutional and individual investors. The entire cryptocurrency universe owes its existence to Bitcoin, and even as rivals have seen similarly impressive returns, they still haven't come close to matching the total value of all the Bitcoin currently trading.</p>\n<h3>Why Now? Demand Is Poised to Keep Rising Even as New Supply Growth Slows</h3>\n<p>As Bitcoin has established itself throughout the investing community, it has been particularly attractive to younger investors. Whereas someone in the 1970s might have sought to accumulate as many Krugerrand gold coins as they could, the next investing generation prefers digital assets that they can buy, sell, and spend on their mobile devices as easily as they can U.S. dollars. And in many areas of the world, where local currencies aren't nearly as stable, digital assets like Bitcoin offer <em>greater </em>stability to preserve purchasing power.</p>\n<p>Against this backdrop of higher demand, Bitcoin's fixed supply of 21 million coins ensures that the digital asset will avoid the inflationary pressures that some fiat currencies have to fight against all the time. The recent halving event earlier this year, which reduced the number of new Bitcoin tokens available to crypto miners for solving the mathematical problems that allow the addition of new blocks to the blockchain governing the digital asset, might affect supply and demand dynamics. Rising demand and falling supply growth add up to the potential for further price appreciation for Bitcoin.</p>\n<h2>What to Watch</h2>\n<h3>Institutional Investors Are the Key</h3>\n<p>Growing incremental use of Bitcoin by ordinary investors will help support the digital asset, but the biggest impact on prices is likely to come from large institutions that are just starting to look at the cryptocurrency arena. Growing acceptance from the SEC and other regulators represents a green light for further investment, but it will still be important for institutions to follow through with sizable purchases. If that doesn't happen, then future gains might not be as impressive.</p>\n<h3>Crypto Scandals Could Tarnish Bitcoin's Reputation</h3>\n<p>Even though the Bitcoin network itself hasn't seen any breaches so far, the same can't be said for the many cryptocurrency exchanges that investors work with to buy and sell Bitcoin and other digital assets. The high-profile blowups of Mt. Gox and FTX produced substantial losses for crypto investors, and further problems could once again raise concerns that the entire asset class is too dangerous.</p>\n<h3>Other Digital Assets Could Disrupt Bitcoin</h3>\n<p>The cryptocurrency industry has gone through various cycles in its short history, with Bitcoin outperforming and then underperforming alternative digital assets. Thus far, <strong>Ethereum </strong><span class=\"ticker\" data-id=\"343717\">(CRYPTO: ETH)</span> has come closest to dethroning Bitcoin as the most valuable cryptocurrency. But Bitcoin currently has a total value that's four times Ethereum; other leading alternatives like <strong>Solana </strong><span class=\"ticker\" data-id=\"343894\">(CRYPTO: SOL)</span> and <strong>Binance Coin </strong><span class=\"ticker\" data-id=\"343666\">(CRYPTO: BNB)</span> are even smaller. Still, the potential exists for a rival digital asset to gain greater acceptance and utility and replace Bitcoin as the leader in the field.</p>\n<h2>Who Else to Watch</h2>\n<ul>\n<li><strong>Binance Coin</strong> <span class=\"ticker\" data-id=\"343666\">(CRYPTO: BNB)</span></li>\n<li><strong>Ethereum</strong> <span class=\"ticker\" data-id=\"343717\">(CRYPTO: ETH)</span></li>\n<li><strong>Solana</strong> <span class=\"ticker\" data-id=\"343894\">(CRYPTO: SOL)</span></li>\n<li><strong>XRP</strong> <span class=\"ticker\" data-id=\"343868\">(CRYPTO: XRP)</span></li>\n</ul>\n<h2>Bottom Line</h2>\n<p>Bitcoin has produced investment returns that other assets can only dream of replicating. The evolution of the digital asset industry is still in its early innings, however, and there's a lot of room for Bitcoin to play a leading role in the expansion of cryptocurrency adoption for years to come.</p>\n<h2>Portfolio Fit</h2>\n<p>The <em>Moneyball Portfolio</em> will be buying $4,000 of Bitcoin. The transaction will be executed on or after next Tuesday.</p>\n<h3>Might Be For</h3>\n<p>Bitcoin might be a good fit for investors seeking to broaden their portfolio exposure beyond stocks into alternative assets like cryptocurrencies. Those who appreciate Bitcoin's underlying philosophy supporting decentralized finance will also likely find it a worthwhile investment.</p>\n<h3>Might Not Be For</h3>\n<p>Bitcoin might not be the ideal fit for those who prefer a more traditional portfolio focusing on stocks and bonds. On the other side of the spectrum, those who believe that rival digital assets have better prospects than Bitcoin might prefer to pursue them instead.</p>\n<h3>Volatility</h3>\n<p>Bitcoin's price is notoriously volatile, although that volatility is not always correlated to movements in stocks. Investors who choose to buy Bitcoin need to be prepared for extremely large drawdowns of 80% or more periodically, while maintaining their conviction that, as it has in the past, Bitcoin's price will fully rebound in time and rise to new heights.</p>\n<p><em>Dan Caplinger contributed to this report.</em></p>",
+  "disclosure": "<div class=\"premium-disclosure\">\r\n<p><em><a href=\"https://www.fool.com/author/1320/\">Tom Gardner</a> has positions in Bitcoin. The Motley Fool has positions in Bitcoin, Ethereum, Solana, and XRP. The Motley Fool has a <a href=\"https://www.fool.com/legal/fool-disclosure-policy/\">disclosure policy</a>.</em></p>\r\n</div>",
+  "promo": "This alternative asset leader is still single-handedly dominating its peers.",
+  "images_json": "[]",
+  "video_show_host_ids": [],
+  "description": null,
+  "title": null,
+  "level": null,
+  "house_slugs": [],
+  "key_points": [],
+  "has_video": false,
+  "ai_summary": [
+      "Bitcoin's Superscore of 92 reflects high adoption, stability, and competitive advantage.",
+      "Bitcoin has established itself as a leader in the cryptocurrency asset class.",
+      "Rising demand and fixed supply of 21 million coins suggest potential for price appreciation."
+  ],
+  "average_rating": 10.0,
+  "comment_count": null,
+  "video_duration": null,
+  "text": null,
+  "authors": [
+      {
+          "primary": true,
+          "contributor_type": "individual",
+          "author_id": 1320,
+          "first_name": "Tom",
+          "last_name": "Gardner",
+          "username": "TMFTomGardner",
+          "twitter_username": null,
+          "byline": "Tom Gardner",
+          "email": "tomg@fool.com",
+          "short_bio": "Fed up with Wall Street's notion that everyday people couldn't comprehend the stock market, Tom Gardner co-founded The Motley Fool in 1993 with a simple obsession: \"To help the world \tinvest, better.\"",
+          "long_bio": "Fed up with Wall Street's notion that everyday people couldn't comprehend the stock market, Tom Gardner co-founded The Motley Fool in 1993 with a simple obsession: \"To help the world \tinvest, better.\" In 2012, Tom announced he was selling off his entire investment portfolio to go \"all-in\" on Motley Fool One - an exclusive, ultra-high-touch service that gives members access to \teverything The Motley Fool has to offer, including his \"Everlasting Portfolio\" - the only stocks Tom currently owns, and the only stocks he will own for the rest of his life.",
+          "additional_disclosure": null,
+          "small_avatar_url": "https://g.foolcdn.com/misc-assets/tom_gardner_200.png",
+          "large_avatar_url": "http://g.foolcdn.com/avatar/31992/large.ashx",
+          "show_host": null
+      }
+  ],
+  "bureau": null,
+  "investingteam": null,
+  "images": [],
+  "video": null,
+  "pitch": null,
+  "byline": "Tom Gardner"
+}
