@@ -53,7 +53,7 @@ const WatchList = () => {
           {watchedCompanies.map((company) => (
             <tr key={company.instrumentId} className="text-center">
               <td className="px-4 py-2">
-                <CompanyLink symbol={company.symbol || ''} />
+                <CompanyLink symbol={company.symbol || ''} exchange={company.exchange || ''} />
               </td>
               <td className="px-4 py-2">{company.name}</td>
               <td className="px-4 py-2">-</td>

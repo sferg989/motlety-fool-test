@@ -1,4 +1,4 @@
-function CompanyLayout({ children }) {
+function ExchangeLayout({ children }) {
   return (
     <div className="w-2/3">
       <div>{children}</div>
@@ -6,4 +6,4 @@ function CompanyLayout({ children }) {
   )
 }
 
-export default CompanyLayout
+export default ExchangeLayout

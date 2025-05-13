@@ -26,7 +26,7 @@ const RankingsTable = ({ rankings }: RankingsProps) => {
           <tr key={ranking.currentRank.value} className="text-center">
             <td>{ranking.currentRank.value}</td>
             <td>
-              <CompanyLink symbol={ranking.instrument.symbol} />
+              <CompanyLink symbol={ranking.instrument.symbol} exchange={ranking.instrument.exchange} />
             </td>
             <td>{ranking.instrument.name}</td>
             <td>{ranking.instrument.sector}</td>
