@@ -1,4 +1,4 @@
-type PeerInstrument = {
+export type PeerInstrument = {
   instrumentId: number
   name: string
   symbol: string
@@ -12,4 +12,12 @@ type PeerInstrument = {
       currencyCode: string
     }
   }
+}
+
+export interface WatchedCompany {
+  instrumentId: number
+  symbol: string
+  name: string
+  exchange?: string
+  id?: number
 }

@@ -7,6 +7,7 @@
     "clean-packages": "rm -rf node_modules .next",
     "dev-https": "next dev --experimental-https",
     "lint": "next lint",
+    "all": "npm run test:coverage && npm run prettier:check && npm run type-check && npm run lint",
     "prettier:check": "prettier --check .",
     "prettier:fix": "prettier --write .",
     "type-check": "tsc --noEmit",
@@ -19,7 +20,8 @@
     "next": "latest",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-loading-skeleton": "^3.5.0"
+    "react-loading-skeleton": "^3.5.0",
+    "zustand": "^5.0.4"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^15.3.2",

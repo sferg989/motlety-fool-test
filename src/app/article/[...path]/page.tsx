@@ -8,14 +8,15 @@ async function ArticlePage({ params }: { params: { path: string } }) {
   const articlesService = new ArticlesService(client)
   const article = await articlesService.getArticleByPath(path)
 
-  const recommendedInstrumentId = article.recommendations.length && article.recommendations[0].instrument.instrument_id
+  const recommendedInstrument = article.recommendations.length > 0 ? article.recommendations[0].instrument : null
+  const recommendedInstrumentId = recommendedInstrument?.instrument_id
 
   return (
     // eslint-disable-next-line max-len
     <div className="bg-gradient-to-r from-black via-slate-900 to-black p-8 font-mono text-slate-300 border-l-4 border-cyan-500 shadow-[0_0_15px_rgba(34,211,238,0.3)] rounded-r-lg">
       <h1 className="text-3xl font-bold mb-6 flex items-center justify-between">
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">{article.headline}</span>
-        {recommendedInstrumentId && <WatchButton instrumentId={recommendedInstrumentId} />}
+        {recommendedInstrumentId && <WatchButton instrumentId={recommendedInstrumentId} symbol={recommendedInstrument.symbol} name={recommendedInstrument.company_name} />}
       </h1>
 
       <p className="text-cyan-300 text-lg mb-6 leading-relaxed">{article.promo}</p>

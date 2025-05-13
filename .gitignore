@@ -39,3 +39,4 @@ certificates
 
 # eslint
 .eslintcache
+.cursor

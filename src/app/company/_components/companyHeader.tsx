@@ -39,7 +39,7 @@ const CompanyHeader = ({ instrumentId, symbol, name, currency, price, change, la
       </div>
 
       <div>
-        <WatchButton instrumentId={instrumentId} includeText={true} />
+        <WatchButton instrumentId={instrumentId} symbol={symbol} name={name} includeText={true} />
       </div>
     </header>
   )

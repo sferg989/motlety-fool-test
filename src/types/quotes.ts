@@ -1,4 +1,5 @@
 import { QuantScore } from './common'
+import { PeerInstrument } from './company'
 
 export type Instrument = {
   exchange: string
