@@ -1,0 +1,9 @@
+{
+  "extends": ["next/core-web-vitals", "prettier"],
+  "rules": {
+    "complexity": ["error", 7],
+    "max-len": ["error", { "code": 175 }],
+    "max-lines": ["error", 175]
+  },
+  "ignorePatterns": ["src/data/queries.js"]
+}
