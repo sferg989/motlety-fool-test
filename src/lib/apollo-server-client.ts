@@ -6,10 +6,10 @@ const client = async () => {
   const getClient = () => {
     return new ApolloClient({
       link: new MockLink(mocks),
-      cache: new InMemoryCache()
+      cache: new InMemoryCache(),
     })
   }
-  return {getClient}
+  return { getClient }
 }
 
 const apolloServerClient = async () => {

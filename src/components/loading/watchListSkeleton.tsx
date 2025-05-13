@@ -1,15 +1,10 @@
-import Skeleton, {SkeletonTheme} from 'react-loading-skeleton'
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 export default function WatchListSkeleton() {
   return (
-    <SkeletonTheme
-      baseColor="#1e3a8a"
-      highlightColor="#3b82f6"
-      borderRadius="4px"
-      duration={2}
-    >
-      <div style={{maxHeight: '200px', overflowY: 'auto'}}>
+    <SkeletonTheme baseColor="#1e3a8a" highlightColor="#3b82f6" borderRadius="4px" duration={2}>
+      <div style={{ maxHeight: '200px', overflowY: 'auto' }}>
         <table className="table-auto w-full">
           <thead>
             <tr>

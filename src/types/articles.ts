@@ -1,4 +1,3 @@
-
 export type Author = {
   authorId: number
   byline: string

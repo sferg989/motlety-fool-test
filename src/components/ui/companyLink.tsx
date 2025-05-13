@@ -6,7 +6,7 @@ interface CompanyLinkProps {
 
 const CompanyLink: React.FC<CompanyLinkProps> = ({ symbol }) => {
   return (
-    <Link 
+    <Link
       href={`/company/${symbol}`}
       className="inline-block px-4 py-2 text-cyan-100
       hover:bg-cyan-500 hover:text-black

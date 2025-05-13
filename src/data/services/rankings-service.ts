@@ -1,6 +1,6 @@
-import {ApolloClient, NormalizedCacheObject} from "@apollo/client"
-import {GET_TOP_RANKINGS} from "~data/queries"
-import type {Ranking} from "~types/rankings"
+import { ApolloClient, NormalizedCacheObject } from '@apollo/client'
+import { GET_TOP_RANKINGS } from '~data/queries'
+import type { Ranking } from '~types/rankings'
 
 class RankingsService {
   private client: ApolloClient<NormalizedCacheObject>
@@ -19,11 +19,10 @@ class RankingsService {
         const { data } = await this.client.query({
           query: GET_TOP_RANKINGS,
         })
-        resolve(data.rankings);
+        resolve(data.rankings)
       }, delay)
     })
   }
 }
 
 export default RankingsService
-

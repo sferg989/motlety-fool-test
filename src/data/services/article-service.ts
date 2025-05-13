@@ -1,6 +1,6 @@
-import {ApolloClient, NormalizedCacheObject} from "@apollo/client"
-import {GET_ARTICLE_LIST} from "~data/queries"
-import {ArticleDetail, ArticleListItem} from "~types/articles"
+import { ApolloClient, NormalizedCacheObject } from '@apollo/client'
+import { GET_ARTICLE_LIST } from '~data/queries'
+import { ArticleDetail, ArticleListItem } from '~types/articles'
 import articleDetail from 'src/data/mocks/article-detail.json'
 
 class ArticlesService {
@@ -32,4 +32,3 @@ class ArticlesService {
 }
 
 export default ArticlesService
-

@@ -7,7 +7,7 @@ type WatchButtonProps = {
 }
 
 const WatchButton = ({ instrumentId, isCurrentlyWatching = false, includeText = false }: WatchButtonProps) => {
-  const text = includeText ? isCurrentlyWatching ? 'Watching' : 'Watch' : ''
+  const text = includeText ? (isCurrentlyWatching ? 'Watching' : 'Watch') : ''
   const indicator = isCurrentlyWatching ? '-' : '+'
   const textColor = isCurrentlyWatching ? 'text-red-500' : 'text-green-500'
 
@@ -17,7 +17,9 @@ const WatchButton = ({ instrumentId, isCurrentlyWatching = false, includeText = 
 
   return (
     <button onClick={onClick} className="px-8 hover:font-bold">
-      <span className={textColor}>{text} {indicator}</span>
+      <span className={textColor}>
+        {text} {indicator}
+      </span>
     </button>
   )
 }

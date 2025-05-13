@@ -1,5 +1,4 @@
-function CompanyLayout({children}) {
-
+function CompanyLayout({ children }) {
   return (
     <div className="w-2/3">
       <div>{children}</div>

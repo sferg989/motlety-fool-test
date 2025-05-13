@@ -1,6 +1,6 @@
-import {ApolloClient, NormalizedCacheObject} from "@apollo/client"
-import {GET_PRODUCTS} from "~data/queries"
-import type {Product} from "~types/common"
+import { ApolloClient, NormalizedCacheObject } from '@apollo/client'
+import { GET_PRODUCTS } from '~data/queries'
+import type { Product } from '~types/common'
 
 class ProductsService {
   private client: ApolloClient<NormalizedCacheObject>
@@ -18,11 +18,10 @@ class ProductsService {
         const { data } = await this.client.query({
           query: GET_PRODUCTS,
         })
-        resolve(data.products);
+        resolve(data.products)
       }, delay)
     })
   }
 }
 
 export default ProductsService
-

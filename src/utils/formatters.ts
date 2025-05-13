@@ -1,4 +1,3 @@
-
 export function formatPercent(value: number, multHundred = false): string {
   if (isNaN(value)) {
     return '-'

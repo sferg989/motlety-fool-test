@@ -19,7 +19,7 @@ export const getQuote = (instrumentId: number): Quote => {
     beta5y: 1.2,
     percentChange: 0.08,
     priceChange: {
-      amount: 9.12
+      amount: 9.12,
     },
   }
 }

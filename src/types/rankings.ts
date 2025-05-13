@@ -1,5 +1,5 @@
-import {LatestRecommendation} from "./articles"
-import {Instrument} from "./quotes"
+import { LatestRecommendation } from './articles'
+import { Instrument } from './quotes'
 
 export type Ranking = {
   currentRank: {

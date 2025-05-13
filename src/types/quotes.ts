@@ -1,4 +1,4 @@
-import {QuantScore} from "./common"
+import { QuantScore } from './common'
 
 export type Instrument = {
   exchange: string
@@ -51,16 +51,16 @@ export type QuoteFundamentals = {
   dynamic: {
     ceo: {
       data: Array<{ value: string }>
-    },
+    }
     marketCapPerEmployee: {
       data: Array<{ value: string }>
-    },
+    }
     website: {
       data: Array<{ value: string }>
-    },
+    }
     marketCapitalization: {
-      data: Array<{ value: string, unit: string }>
-    },
+      data: Array<{ value: string; unit: string }>
+    }
     numberOfEmployees: {
       data: Array<{ value: string }>
     }

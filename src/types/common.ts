@@ -1,4 +1,3 @@
-
 export type QuantScore = {
   analystScore: number
   capsScore: number

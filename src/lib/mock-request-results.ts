@@ -55,7 +55,7 @@ const mocks = [
         instrument: COMPANY_DATA,
       },
     },
-  }
+  },
 ]
 
 export default mocks
