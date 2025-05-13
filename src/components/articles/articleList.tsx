@@ -7,7 +7,7 @@ type ArticleListProps = {
 
 const ArticleList = ({ articles }: ArticleListProps) => {
   return (
-    <div className="mb-16">
+    <div className="mb-16" data-testid="article-list">
       {articles.map((article) => (
         <div key={article.uuid} className="mb-8">
           <h2 className="text-2xl font-bold">
