@@ -3,32 +3,45 @@ import apolloServerClient from '~lib/apollo-server-client'
 import { Instrument, Quote, QuoteFundamentals } from '~types/quotes'
 import CompanyHeader, { CompanyHeaderProps } from '../../_components/companyHeader'
 import CompanyData from '../../_components/companyData'
+import Debug from '~components/debug'
+import CompanyService from '~data/services/company-service'
+import SymbolMapperService from '~data/services/symbol-mapper-service'
 
 async function CompanyPage({ params }: { params: Promise<{ exchange: string; symbol: string }> }) {
   const { symbol, exchange } = await params
   const client = await apolloServerClient()
-  const { data: companyData } = await client.query({
-    query: GET_COMPANY_DATA,
-  })
+  
+  // Get instrumentId from symbol
+  const symbolMapper = SymbolMapperService.getInstance(client)
+  
+  const instrumentId = await symbolMapper.getInstrumentIdBySymbol(symbol)
+  if (!instrumentId) {
+    throw new Error(`Company with symbol ${symbol} not found`)
+  }
+  
+  const companyService = CompanyService.getInstance(client)
+  const companyData = await companyService.getCompanyDataByInstrumentId(instrumentId)
 
-  const instrumentData = companyData.instrument.instrument as Instrument
-  const quoteData = instrumentData.quote as Quote
-  const quoteFundamentals = companyData.quoteFundamentals as QuoteFundamentals
-
-  const headerData: CompanyHeaderProps = {
-    instrumentId: instrumentData.instrumentId,
-    symbol: instrumentData.symbol,
-    name: instrumentData.name,
-    currency: quoteData.currentPrice.currencyCode,
-    price: quoteData.currentPrice.amount,
-    change: quoteData.priceChange.amount,
-    lastUpdate: quoteData.lastTradeDate,
+  if (!companyData) {
+    throw new Error(`No data found for company with symbol ${symbol}`)
   }
 
+  const headerData: CompanyHeaderProps = {
+    instrumentId: companyData.instrumentId,
+    symbol: companyData.symbol,
+    name: companyData.name,
+    currency: companyData.quote.currentPrice.currencyCode,
+    price: companyData.quote.currentPrice.amount,
+    change: companyData.quote.priceChange.amount,
+    lastUpdate: companyData.quote.lastTradeDate,
+  }
+  
   return (
     <div>
+      <Debug data={companyData} />
+      <Debug data={companyData.quoteFundamentals} />
       <CompanyHeader {...headerData} />
-      <CompanyData />
+      <CompanyData quote={companyData.quote} quoteFundamentals={companyData.quoteFundamentals} />
     </div>
   )
 }

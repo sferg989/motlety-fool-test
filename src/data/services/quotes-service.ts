@@ -1,7 +1,7 @@
 import type { Quote, RealtimeQuotes } from 'src/types/quotes'
 import realtimeQuotesData from 'src/data/mocks/realtime-quotes.json'
 
-export const getQuote = (instrumentId: number): Quote => {
+export const getQuote = (): Quote => {
   return {
     currentPrice: {
       amount: 5.0,
@@ -41,5 +41,16 @@ export const getQuote = (instrumentId: number): Quote => {
 }
 
 export const getRealtimeQuotes = (instrumentIds: number[]): RealtimeQuotes => {
-  return realtimeQuotesData
+  if (!instrumentIds.length) return {}
+  
+  const filteredQuotes: RealtimeQuotes = {}
+  
+  instrumentIds.forEach(id => {
+    const stringId = id.toString()
+    if (realtimeQuotesData[stringId]) {
+      filteredQuotes[stringId] = realtimeQuotesData[stringId]
+    }
+  })
+  
+  return filteredQuotes
 }
