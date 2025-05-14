@@ -8,6 +8,22 @@ export const getQuote = (instrumentId: number): Quote => {
       currencyCode: 'USD',
     },
     dividendYield: 0.02,
+    dailyRange: {
+      min: {
+        amount: 100,
+      },
+      max: {
+        amount: 1000,
+      },
+    },
+    fiftyTwoWeekRange: {
+      max: {
+        amount: 258.18,
+      },
+      min: {
+        amount: 139.5,
+      },
+    },
     lastTradeDate: new Date().toISOString(),
     marketCap: {
       amount: 1000000000000,

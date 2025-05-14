@@ -58,7 +58,7 @@ export const useWatchedCompaniesStore = create<WatchedCompaniesState>()(
           }
         },
 
-        initializeFromApi: (apiInstruments: any[]) => {
+        initializeFromApi: (apiInstruments: WatchedCompany[]) => {
           const apiCompanies = apiInstruments.map((instrument) => ({
             instrumentId: instrument.instrumentId,
             symbol: instrument.symbol,

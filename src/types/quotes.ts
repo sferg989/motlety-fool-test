@@ -22,6 +22,22 @@ export type Quote = {
     currencyCode: string
   }
   dividendYield: number
+  dailyRange: {
+    min: {
+      amount: number
+    }
+    max: {
+      amount: number
+    }
+  }
+  fiftyTwoWeekRange: {
+    min: {
+      amount: number
+    }
+    max: {
+      amount: number
+    }
+  }
   lastTradeDate: string
   marketCap: {
     amount: number

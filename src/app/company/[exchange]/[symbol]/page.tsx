@@ -4,8 +4,8 @@ import { Instrument, Quote, QuoteFundamentals } from '~types/quotes'
 import CompanyHeader, { CompanyHeaderProps } from '../../_components/companyHeader'
 import CompanyData from '../../_components/companyData'
 
-async function CompanyPage({ params }: { params: { exchange: string; symbol: string } }) {
-  const { symbol, exchange } = params
+async function CompanyPage({ params }: { params: Promise<{ exchange: string; symbol: string }> }) {
+  const { symbol, exchange } = await params
   const client = await apolloServerClient()
   const { data: companyData } = await client.query({
     query: GET_COMPANY_DATA,
