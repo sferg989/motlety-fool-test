@@ -18,9 +18,9 @@ export default async function Home() {
   const latestArticles = await articlesService.getLatestArticles()
 
   return (
-    <main>
-      <div className="mb-12 text-center">
-        <h1 className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-100 to-blue-700">The Motley UFO</h1>
+    <main className="w-full max-w-full overflow-hidden">
+      <div className="mb-12 text-center px-4 mx-auto max-w-full">
+        <h1 className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-100 to-blue-700 break-words">The Motley UFO</h1>
         <p className="text-lg text-cyan-300 mt-2 tracking-wide">Finding Stocks with Extraterrestrial Influence</p>
       </div>
 

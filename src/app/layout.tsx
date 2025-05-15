@@ -24,9 +24,9 @@ export default function RootLayout({
           <meta name="charset" content="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
         </Head>
-        <body className="min-h-screen bg-gradient-to-b from-black via-blue-900 to-black text-blue-100 p-8">
+        <body className="min-h-screen bg-gradient-to-b from-black via-blue-900 to-black text-blue-100 p-4 sm:p-6 md:p-8">
           <TopNav />
-          <div className="w-full mx-12 lg:mx-0 my-12 flex items-center justify-center">{children}</div>
+          <div className="w-full my-8 sm:my-10 md:my-12 flex items-center justify-center px-2 sm:px-4">{children}</div>
           <Footer />
         </body>
       </html>

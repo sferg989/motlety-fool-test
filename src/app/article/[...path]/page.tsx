@@ -13,7 +13,7 @@ async function ArticlePage({ params }: { params: Promise<{ path: string }> }) {
   const recommendedInstrumentId = recommendedInstrument?.instrument_id
 
   return (
-    <div className="w-full max-w-4xl mx-auto px-4 sm:px-6">
+    <div className="w-full max-w-4xl mx-auto px-2 sm:px-4 md:px-6">
       <div
         className="bg-gradient-to-r from-black via-slate-900 to-black p-4 sm:p-8 font-mono text-slate-300 
         border-l-4 border-cyan-500 shadow-[0_0_15px_rgba(34,211,238,0.3)] rounded-r-lg overflow-hidden"
