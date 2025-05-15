@@ -10,15 +10,14 @@ import SymbolMapperService from '~data/services/symbol-mapper-service'
 async function CompanyPage({ params }: { params: Promise<{ exchange: string; symbol: string }> }) {
   const { symbol, exchange } = await params
   const client = await apolloServerClient()
-  
-  // Get instrumentId from symbol
+
   const symbolMapper = SymbolMapperService.getInstance(client)
-  
+
   const instrumentId = await symbolMapper.getInstrumentIdBySymbol(symbol)
   if (!instrumentId) {
     throw new Error(`Company with symbol ${symbol} not found`)
   }
-  
+
   const companyService = CompanyService.getInstance(client)
   const companyData = await companyService.getCompanyDataByInstrumentId(instrumentId)
 
@@ -35,11 +34,9 @@ async function CompanyPage({ params }: { params: Promise<{ exchange: string; sym
     change: companyData.quote.priceChange.amount,
     lastUpdate: companyData.quote.lastTradeDate,
   }
-  
+
   return (
     <div>
-      <Debug data={companyData} />
-      <Debug data={companyData.quoteFundamentals} />
       <CompanyHeader {...headerData} />
       <CompanyData quote={companyData.quote} quoteFundamentals={companyData.quoteFundamentals} />
     </div>

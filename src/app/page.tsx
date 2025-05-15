@@ -5,6 +5,7 @@ import ArticleList from '~components/articles/articleList'
 import WatchList from '~components/watchList'
 import Rankings from '~components/rankingsTable'
 import ProductsService from '~data/services/products-service'
+import WatchListContainer from '~components/watchListContainer'
 
 export default async function Home() {
   const client = await apolloServerClient()
@@ -26,7 +27,7 @@ export default async function Home() {
       <div>
         <div className="backdrop-blur-sm bg-blue-900/20 rounded-lg p-6 border border-cyan-500/30 shadow-lg shadow-cyan-500/20 mb-12">
           <h2 className="text-2xl font-semibold text-cyan-400 mb-4 tracking-wide">Watching for Suspicious Behavior:</h2>
-          <WatchList />
+          <WatchListContainer />
         </div>
 
         <div className="backdrop-blur-sm bg-blue-900/20 rounded-lg p-6 border border-cyan-500/30 shadow-lg shadow-cyan-500/20 mb-12">

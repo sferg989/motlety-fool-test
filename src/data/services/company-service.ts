@@ -14,10 +14,10 @@ export type CompanyData = {
 }
 
 class CompanyService {
-  private static instance: CompanyService | null = null;
+  private static instance: CompanyService | null = null
   private watchedInstrumentService: WatchedInstrumentService
   private rankedInstrumentService: RankedInstrumentService
-  
+
   private constructor(apolloClient: ApolloClient<NormalizedCacheObject>) {
     this.watchedInstrumentService = WatchedInstrumentService.getInstance(apolloClient)
     this.rankedInstrumentService = RankedInstrumentService.getInstance(apolloClient)
@@ -25,25 +25,23 @@ class CompanyService {
 
   public static getInstance(apolloClient: ApolloClient<NormalizedCacheObject>): CompanyService {
     if (!CompanyService.instance) {
-      CompanyService.instance = new CompanyService(apolloClient);
+      CompanyService.instance = new CompanyService(apolloClient)
     }
-    return CompanyService.instance;
+    return CompanyService.instance
   }
 
   public static resetInstance(): void {
-    CompanyService.instance = null;
+    CompanyService.instance = null
   }
 
   // Transform watched company data to common format
-  private transformWatchedCompany(
-    company: WatchedCompany & { quote: Quote, quoteFundamentals: QuoteFundamentals }
-  ): CompanyData {
+  private transformWatchedCompany(company: WatchedCompany & { quote: Quote; quoteFundamentals: QuoteFundamentals }): CompanyData {
     return {
       instrumentId: company.instrumentId,
       symbol: company.symbol,
       name: company.name,
       quote: company.quote,
-      quoteFundamentals: company.quoteFundamentals
+      quoteFundamentals: company.quoteFundamentals,
     }
   }
 
@@ -67,26 +65,23 @@ class CompanyService {
         peRatio: rankedCompany.instrument.quote.peRatio,
         beta5y: rankedCompany.instrument.quote.beta5y,
       },
-      quoteFundamentals: rankedCompany.instrument.quoteFundamentals
+      quoteFundamentals: rankedCompany.instrument.quoteFundamentals,
     }
   }
 
   async getCompanyDataByInstrumentId(instrumentId: number): Promise<CompanyData | null> {
-    // First try ranked instruments
     const rankedCompany = await this.rankedInstrumentService.getRankedCompanyDataByInstrumentId(instrumentId)
-  
-    
+
     if (rankedCompany) {
       return this.transformRankedCompany(rankedCompany)
     }
-    
-    // If not found, try watched instruments
+
     const watchedCompany = await this.watchedInstrumentService.getWatchedCompanyDataByInstrumentId(instrumentId)
-    
+
     if (watchedCompany) {
       return this.transformWatchedCompany(watchedCompany)
     }
-    
+
     return null
   }
 

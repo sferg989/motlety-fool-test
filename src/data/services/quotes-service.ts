@@ -42,15 +42,15 @@ export const getQuote = (): Quote => {
 
 export const getRealtimeQuotes = (instrumentIds: number[]): RealtimeQuotes => {
   if (!instrumentIds.length) return {}
-  
+
   const filteredQuotes: RealtimeQuotes = {}
-  
-  instrumentIds.forEach(id => {
+
+  instrumentIds.forEach((id) => {
     const stringId = id.toString()
     if (realtimeQuotesData[stringId]) {
       filteredQuotes[stringId] = realtimeQuotesData[stringId]
     }
   })
-  
+
   return filteredQuotes
 }

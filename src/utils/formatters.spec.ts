@@ -92,4 +92,4 @@ describe('formatters', () => {
       expect(formatMillions(NaN)).toBe('-')
     })
   })
-}) 
+})

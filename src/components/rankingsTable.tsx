@@ -32,7 +32,13 @@ const RankingsTable = ({ rankings }: RankingsProps) => {
             <td>{ranking.instrument.sector}</td>
             <td>{formatPercent(ranking.instrument.quantScore.value)}</td>
             <td>
-              <WatchButton instrumentId={ranking.instrument.instrumentId} symbol={ranking.instrument.symbol} name={ranking.instrument.name} includeText={false} />
+              <WatchButton
+                instrumentId={ranking.instrument.instrumentId}
+                symbol={ranking.instrument.symbol}
+                name={ranking.instrument.name}
+                exchange={ranking.instrument.exchange}
+                includeText={false}
+              />
             </td>
           </tr>
         ))}

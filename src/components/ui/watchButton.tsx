@@ -8,6 +8,7 @@ type WatchButtonProps = {
   instrumentId: number
   symbol?: string
   name?: string
+  exchange?: string
   isCurrentlyWatching?: boolean
   includeText?: boolean
 }
@@ -22,7 +23,7 @@ const getButtonState = (isWatching: boolean, includeText: boolean) => {
   }
 }
 
-const WatchButton = ({ instrumentId, symbol, name, isCurrentlyWatching: propIsWatching, includeText = false }: WatchButtonProps) => {
+const WatchButton = ({ instrumentId, symbol, name, exchange, isCurrentlyWatching: propIsWatching, includeText = false }: WatchButtonProps) => {
   const { isWatched, toggleWatchedCompany } = useWatchedCompaniesStore()
   const [isMounted, setIsMounted] = useState(false)
 
@@ -39,6 +40,7 @@ const WatchButton = ({ instrumentId, symbol, name, isCurrentlyWatching: propIsWa
       instrumentId,
       symbol: symbol || '',
       name: name || '',
+      exchange: exchange || '',
     })
   }
 

@@ -6,12 +6,12 @@ import { getQuote, getRealtimeQuotes } from './quotes-service'
 import QuoteFundamentalsService from './quote-fundamentals-service'
 
 class WatchedInstrumentService {
-  private static instance: WatchedInstrumentService | null = null;
+  private static instance: WatchedInstrumentService | null = null
   private client: ApolloClient<NormalizedCacheObject>
   private isFirstLoad: boolean = true
   private quoteFundamentalsService: QuoteFundamentalsService
   private quoteData: Quote
-  
+
   private constructor(apolloClient: ApolloClient<NormalizedCacheObject>) {
     this.client = apolloClient
     this.quoteFundamentalsService = QuoteFundamentalsService.getInstance(apolloClient)
@@ -20,13 +20,13 @@ class WatchedInstrumentService {
 
   public static getInstance(apolloClient: ApolloClient<NormalizedCacheObject>): WatchedInstrumentService {
     if (!WatchedInstrumentService.instance) {
-      WatchedInstrumentService.instance = new WatchedInstrumentService(apolloClient);
+      WatchedInstrumentService.instance = new WatchedInstrumentService(apolloClient)
     }
-    return WatchedInstrumentService.instance;
+    return WatchedInstrumentService.instance
   }
 
   public static resetInstance(): void {
-    WatchedInstrumentService.instance = null;
+    WatchedInstrumentService.instance = null
   }
 
   private async simulateDelay<T>(callback: () => Promise<T>): Promise<T> {
@@ -40,25 +40,25 @@ class WatchedInstrumentService {
     })
   }
 
-  async getWatchedCompanyDataByInstrumentId(instrumentId: number): Promise<WatchedCompany & { quote: Quote, quoteFundamentals: QuoteFundamentals } | null> {
+  async getWatchedCompanyDataByInstrumentId(instrumentId: number): Promise<(WatchedCompany & { quote: Quote; quoteFundamentals: QuoteFundamentals }) | null> {
     const companies = await this.getWatchedInstrumentsWithQuotes()
-    return companies.find(company => company.instrumentId === instrumentId) || null
+    return companies.find((company) => company.instrumentId === instrumentId) || null
   }
 
-  async getWatchedInstrumentsWithQuotes(): Promise<(WatchedCompany & { quote: Quote, quoteFundamentals: QuoteFundamentals })[]> {
+  async getWatchedInstrumentsWithQuotes(): Promise<(WatchedCompany & { quote: Quote; quoteFundamentals: QuoteFundamentals })[]> {
     return this.simulateDelay(async () => {
       const { data } = await this.client.query({
         query: GET_WATCHED_INSTRUMENTS,
       })
       const watchedInstruments = data.instruments as WatchedCompany[]
-      const instrumentIds = watchedInstruments.map(instrument => instrument.instrumentId)
+      const instrumentIds = watchedInstruments.map((instrument) => instrument.instrumentId)
       const realtimeQuotes = getRealtimeQuotes(instrumentIds)
       const quoteFundamentals = await this.quoteFundamentalsService.getQuoteFundamentals()
-      
-      return watchedInstruments.map(instrument => {
+
+      return watchedInstruments.map((instrument) => {
         const instrumentId = instrument.instrumentId.toString()
         const realtimeQuote = realtimeQuotes[instrumentId]
-        
+
         return {
           ...instrument,
           quote: {
@@ -89,11 +89,11 @@ class WatchedInstrumentService {
             peRatio: this.quoteData.peRatio,
             beta5y: this.quoteData.beta5y,
           },
-          quoteFundamentals
+          quoteFundamentals,
         }
       })
     })
   }
 }
 
-export default WatchedInstrumentService 
+export default WatchedInstrumentService

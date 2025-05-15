@@ -11,12 +11,8 @@ interface CompanyDetailsLinkProps {
   children?: React.ReactNode
 }
 
-const CompanyDetailsLink: React.FC<CompanyDetailsLinkProps> = ({ 
-  instrumentId, 
-  className = '', 
-  children 
-}) => {
-  const [linkData, setLinkData] = useState<{ symbol: string, exchange: string } | null>(null)
+const CompanyDetailsLink: React.FC<CompanyDetailsLinkProps> = ({ instrumentId, className = '', children }) => {
+  const [linkData, setLinkData] = useState<{ symbol: string; exchange: string } | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const apolloClient = useApolloClient() as ApolloClient<NormalizedCacheObject>
 
@@ -26,11 +22,10 @@ const CompanyDetailsLink: React.FC<CompanyDetailsLinkProps> = ({
         setIsLoading(true)
         const symbolMapper = SymbolMapperService.getInstance(apolloClient)
         const symbol = await symbolMapper.getSymbolByInstrumentId(instrumentId)
-        
+        const exchange = await symbolMapper.getExchangeBySymbol(symbol)
+
         if (symbol) {
-          // For now we'll hardcode NASDAQ as exchange, but in real app you'd get this from data
-          // This is just a demonstration of using the mapper service
-          setLinkData({ symbol, exchange: 'NASDAQ' })
+          setLinkData({ symbol, exchange })
         }
       } catch (error) {
         console.error('Error loading company link data:', error)
@@ -60,4 +55,4 @@ const CompanyDetailsLink: React.FC<CompanyDetailsLinkProps> = ({
   )
 }
 
-export default CompanyDetailsLink 
+export default CompanyDetailsLink

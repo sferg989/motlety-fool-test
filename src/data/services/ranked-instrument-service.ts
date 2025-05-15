@@ -7,26 +7,26 @@ import QuoteFundamentalsService from './quote-fundamentals-service'
 
 export type RankedCompanyData = Ranking & {
   instrument: Ranking['instrument'] & {
-    quoteFundamentals: QuoteFundamentals;
+    quoteFundamentals: QuoteFundamentals
     dailyRange: {
-      min: { amount: number };
-      max: { amount: number };
-    };
+      min: { amount: number }
+      max: { amount: number }
+    }
     fiftyTwoWeekRange: {
-      min: { amount: number };
-      max: { amount: number };
-    };
+      min: { amount: number }
+      max: { amount: number }
+    }
   }
 }
 
 class RankedInstrumentService {
-  private static instance: RankedInstrumentService | null = null;
+  private static instance: RankedInstrumentService | null = null
   private client: ApolloClient<NormalizedCacheObject>
   private isFirstLoad: boolean = true
   private rankingsService: RankingsService
   private quoteFundamentalsService: QuoteFundamentalsService
   private quoteData: Quote
-  
+
   private constructor(apolloClient: ApolloClient<NormalizedCacheObject>) {
     this.client = apolloClient
     this.rankingsService = new RankingsService(apolloClient)
@@ -36,13 +36,13 @@ class RankedInstrumentService {
 
   public static getInstance(apolloClient: ApolloClient<NormalizedCacheObject>): RankedInstrumentService {
     if (!RankedInstrumentService.instance) {
-      RankedInstrumentService.instance = new RankedInstrumentService(apolloClient);
+      RankedInstrumentService.instance = new RankedInstrumentService(apolloClient)
     }
-    return RankedInstrumentService.instance;
+    return RankedInstrumentService.instance
   }
 
   public static resetInstance(): void {
-    RankedInstrumentService.instance = null;
+    RankedInstrumentService.instance = null
   }
 
   private async simulateDelay<T>(callback: () => Promise<T>): Promise<T> {
@@ -60,8 +60,8 @@ class RankedInstrumentService {
     return this.simulateDelay(async () => {
       const rankings = await this.rankingsService.getTopRankings()
       const quoteFundamentals = await this.quoteFundamentalsService.getQuoteFundamentals()
-      
-      return rankings.map(ranking => ({
+
+      return rankings.map((ranking) => ({
         ...ranking,
         instrument: {
           ...ranking.instrument,
@@ -73,8 +73,8 @@ class RankedInstrumentService {
           fiftyTwoWeekRange: {
             min: { amount: this.quoteData.fiftyTwoWeekRange.min.amount },
             max: { amount: this.quoteData.fiftyTwoWeekRange.max.amount },
-          }
-        }
+          },
+        },
       }))
     })
   }
@@ -83,11 +83,11 @@ class RankedInstrumentService {
     return this.simulateDelay(async () => {
       const rankings = await this.rankingsService.getTopRankings()
       const quoteFundamentals = await this.quoteFundamentalsService.getQuoteFundamentals()
-      
-      const company = rankings.find(ranking => ranking.instrument.instrumentId === instrumentId)
-      
+
+      const company = rankings.find((ranking) => ranking.instrument.instrumentId === instrumentId)
+
       if (!company) return null
-      
+
       return {
         ...company,
         instrument: {
@@ -100,11 +100,11 @@ class RankedInstrumentService {
           fiftyTwoWeekRange: {
             min: { amount: this.quoteData.fiftyTwoWeekRange.min.amount },
             max: { amount: this.quoteData.fiftyTwoWeekRange.max.amount },
-          }
-        }
+          },
+        },
       }
     })
   }
 }
 
-export default RankedInstrumentService 
+export default RankedInstrumentService

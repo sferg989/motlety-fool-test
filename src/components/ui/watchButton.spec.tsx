@@ -79,6 +79,7 @@ describe('WatchButton', () => {
       instrumentId: props.instrumentId,
       symbol: props.symbol,
       name: props.name,
+      exchange: '',
     }
 
     expect(mockToggleWatchedCompany).toHaveBeenCalledTimes(1)

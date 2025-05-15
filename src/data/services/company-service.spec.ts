@@ -1,132 +1,124 @@
-import { ApolloClient, InMemoryCache } from '@apollo/client'
+/* eslint-disable */
+import { jest } from '@jest/globals'
+import { ApolloClient, NormalizedCacheObject } from '@apollo/client'
 import CompanyService from './company-service'
+import WatchedInstrumentService from './watched-instrument-service'
+import RankedInstrumentService from './ranked-instrument-service'
 
-// Mock the Apollo client
-jest.mock('@apollo/client', () => {
-  return {
-    ApolloClient: jest.fn().mockImplementation(() => {
-      return {
-        query: jest.fn().mockImplementation((options) => {
-          if (options.query.definitions[0].name.value === 'GetWatchedInstruments') {
-            return Promise.resolve({
-              data: {
-                instruments: [
-                  {
-                    instrumentId: 202674,
-                    name: 'Marriott International',
-                    symbol: 'MAR',
-                    exchange: 'NASDAQ',
-                  },
-                ],
-              },
-            })
-          } else if (options.query.definitions[0].name.value === 'GetTopRankings') {
-            return Promise.resolve({
-              data: {
-                rankings: [
-                  {
-                    currentRank: { asOfDate: '2024-10-21', value: 1 },
-                    instrument: {
-                      instrumentId: 202674,
-                      name: 'Marriott International',
-                      symbol: 'MAR',
-                      exchange: 'NASDAQ',
-                    },
-                  },
-                ],
-              },
-            })
-          }
-          return Promise.resolve({ data: {} })
-        }),
-      }
-    }),
-    InMemoryCache: jest.fn(),
-  }
-})
+// Create mock data
+const mockWatchedCompanyData = {
+  instrumentId: 456,
+  symbol: 'GOOGL',
+  name: 'Alphabet Inc.',
+  quote: {
+    currentPrice: { amount: 2500, currencyCode: 'USD' },
+    priceChange: { amount: 30 },
+    percentChange: 1.2,
+    lastTradeDate: '2023-01-01',
+  },
+  quoteFundamentals: { pe: 30, eps: 83 },
+}
 
-// Mock rankings service
-jest.mock('./rankings-service', () => {
-  return jest.fn().mockImplementation(() => ({
-    getTopRankings: jest.fn().mockResolvedValue([
-      {
-        currentRank: { asOfDate: '2024-10-21', value: 1 },
-        instrument: {
-          instrumentId: 202674,
-          name: 'Marriott International',
-          symbol: 'MAR',
-          exchange: 'NASDAQ',
-        },
-      }
-    ])
-  }))
-})
-
-// Mock quotes service
-jest.mock('./quotes-service', () => ({
-  getRealtimeQuotes: jest.fn().mockImplementation(() => ({
-    '202674': {
-      current_price: 1000,
-      high: 1100,
-      low: 900,
-      change: 50,
-      percent_change: 0.05,
-      currency: 'USD',
-      last_trade_date: '2024-10-30',
+const mockRankedCompanyData = {
+  instrument: {
+    instrumentId: 123,
+    symbol: 'AAPL',
+    name: 'Apple Inc.',
+    quote: {
+      currentPrice: { amount: 150 },
+      priceChange: { amount: 2 },
+      percentChange: 1.5,
+      lastTradeDate: '2023-01-01',
     },
-  })),
-}))
+    quoteFundamentals: { pe: 25, eps: 6 },
+  },
+}
+
+// Create direct mock functions instead of mocking entire modules
+let mockWatchedGetById
+let mockRankedGetById
 
 describe('CompanyService', () => {
-  let companyService: CompanyService
-  let mockClient: ApolloClient<any>
+  let mockApolloClient: ApolloClient<NormalizedCacheObject>
 
   beforeEach(() => {
-    mockClient = new ApolloClient({
-      cache: new InMemoryCache()
-    })
-    companyService = new CompanyService(mockClient)
+    // Reset the singleton instance before each test
+    CompanyService.resetInstance()
+    WatchedInstrumentService.resetInstance()
+    RankedInstrumentService.resetInstance()
+
+    // Setup mock Apollo client
+    mockApolloClient = {
+      query: jest.fn().mockResolvedValue({ data: {} } as never),
+    } as unknown as ApolloClient<NormalizedCacheObject>
+
+    // Create fresh spies for each test
+    mockWatchedGetById = jest.spyOn(WatchedInstrumentService.prototype, 'getWatchedCompanyDataByInstrumentId').mockImplementation(() => Promise.resolve(null))
+
+    mockRankedGetById = jest.spyOn(RankedInstrumentService.prototype, 'getRankedCompanyDataByInstrumentId').mockImplementation(() => Promise.resolve(null))
   })
 
   afterEach(() => {
-    jest.clearAllMocks()
+    mockWatchedGetById.mockRestore()
+    mockRankedGetById.mockRestore()
   })
 
-  it('should get all company data', async () => {
-    const result = await companyService.getAllCompanyData()
-    
-    expect(result).toHaveLength(1)
-    expect(result[0].instrumentId).toBe(202674)
-    expect(result[0].name).toBe('Marriott International')
-    expect(result[0].quote?.currentPrice.amount).toBe(1000)
-  })
+  test('getInstance should create and return a singleton instance', () => {
+    const instance1 = CompanyService.getInstance(mockApolloClient)
+    const instance2 = CompanyService.getInstance(mockApolloClient)
 
-  it('should get company data by instrument ID', async () => {
-    const result = await companyService.getCompanyDataByInstrumentId(202674)
-    
-    expect(result).toBeDefined()
-    expect(result?.instrumentId).toBe(202674)
-  })
+    expect(instance1).toBe(instance2)
+  }, 10000)
 
-  it('should return null for non-existing instrument ID', async () => {
-    const result = await companyService.getCompanyDataByInstrumentId(999999)
-    
+  test('getCompanyDataByInstrumentId should return ranked company data when found', async () => {
+    const instrumentId = 123
+
+    // Only ranked service returns data
+    mockRankedGetById.mockResolvedValue(mockRankedCompanyData)
+
+    const companyService = CompanyService.getInstance(mockApolloClient)
+    const result = await companyService.getCompanyDataByInstrumentId(instrumentId)
+
+    expect(mockRankedGetById).toHaveBeenCalledWith(instrumentId)
+    expect(result).toEqual({
+      instrumentId: 123,
+      symbol: 'AAPL',
+      name: 'Apple Inc.',
+      quote: {
+        currentPrice: { amount: 150 },
+        priceChange: { amount: 2 },
+        percentChange: 1.5,
+        lastTradeDate: '2023-01-01',
+      },
+      quoteFundamentals: { pe: 25, eps: 6 },
+    })
+  }, 10000)
+
+  test('getCompanyDataByInstrumentId should return watched company data when ranked is not found', async () => {
+    const instrumentId = 456
+
+    // Ranked returns null, watched returns data
+    mockRankedGetById.mockResolvedValue(null)
+    mockWatchedGetById.mockResolvedValue(mockWatchedCompanyData)
+
+    const companyService = CompanyService.getInstance(mockApolloClient)
+    const result = await companyService.getCompanyDataByInstrumentId(instrumentId)
+
+    expect(mockRankedGetById).toHaveBeenCalledWith(instrumentId)
+    expect(mockWatchedGetById).toHaveBeenCalledWith(instrumentId)
+    expect(result).toEqual(mockWatchedCompanyData)
+  }, 10000)
+
+  test('getCompanyDataByInstrumentId should return null when company not found in either service', async () => {
+    const instrumentId = 789
+
+    // Both services return null
+    mockRankedGetById.mockResolvedValue(null)
+    mockWatchedGetById.mockResolvedValue(null)
+
+    const companyService = CompanyService.getInstance(mockApolloClient)
+    const result = await companyService.getCompanyDataByInstrumentId(instrumentId)
+
     expect(result).toBeNull()
-  })
-
-  it('should get watched instruments with realtime quotes', async () => {
-    const result = await companyService.getWatchedInstrumentsWithQuotes()
-    
-    expect(result).toHaveLength(1)
-    expect(result[0].instrumentId).toBe(202674)
-    expect(result[0].quote.currentPrice.amount).toBe(1000)
-  })
-
-  it('should get top rankings with company data', async () => {
-    const result = await companyService.getTopRankingsWithCompanyData()
-    
-    expect(result).toHaveLength(1)
-    expect(result[0].currentRank.value).toBe(1)
-    expect(result[0].instrument.instrumentId).toBe(202674)
-  })
+  }, 10000)
 })
