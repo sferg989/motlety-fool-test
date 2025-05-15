@@ -17,6 +17,9 @@
   },
   "dependencies": {
     "@apollo/client": "^3.11.8",
+    "@types/dompurify": "^3.0.5",
+    "dompurify": "^3.2.5",
+    "isomorphic-dompurify": "^2.24.0",
     "next": "latest",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
