@@ -11,6 +11,8 @@ async function ArticlePage({ params }: { params: Promise<{ path: string }> }) {
 
   const recommendedInstrument = article.recommendations.length > 0 ? article.recommendations[0].instrument : null
   const recommendedInstrumentId = recommendedInstrument?.instrument_id
+  const exchange = recommendedInstrument?.exchange
+  const symbol = recommendedInstrument?.symbol
 
   return (
     <div className="w-full max-w-4xl mx-auto px-2 sm:px-4 md:px-6">
@@ -25,7 +27,7 @@ async function ArticlePage({ params }: { params: Promise<{ path: string }> }) {
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">{article.headline}</span>
           {recommendedInstrumentId && (
             <div className="flex-shrink-0">
-              <WatchButton instrumentId={recommendedInstrumentId} symbol={recommendedInstrument.symbol} name={recommendedInstrument.company_name} />
+              <WatchButton instrumentId={recommendedInstrumentId} symbol={symbol} name={recommendedInstrument.company_name} />
             </div>
           )}
         </h1>
@@ -34,6 +36,8 @@ async function ArticlePage({ params }: { params: Promise<{ path: string }> }) {
 
         <SanitizedHtml
           html={article.body}
+          exchange={exchange}
+          symbol={symbol}
           className="text-slate-300 leading-relaxed bg-slate-900/50 p-3 sm:p-6 rounded-lg 
             border border-cyan-500/30 overflow-x-auto"
         />

@@ -6,6 +6,7 @@ import CompanyData from '../../_components/companyData'
 import Debug from '~components/debug'
 import CompanyService from '~data/services/company-service'
 import SymbolMapperService from '~data/services/symbol-mapper-service'
+import { notFound } from 'next/navigation'
 
 async function CompanyPage({ params }: { params: Promise<{ exchange: string; symbol: string }> }) {
   const { symbol, exchange } = await params
@@ -15,14 +16,14 @@ async function CompanyPage({ params }: { params: Promise<{ exchange: string; sym
 
   const instrumentId = await symbolMapper.getInstrumentIdBySymbol(symbol)
   if (!instrumentId) {
-    throw new Error(`Company with symbol ${symbol} not found`)
+    notFound()
   }
 
   const companyService = CompanyService.getInstance(client)
   const companyData = await companyService.getCompanyDataByInstrumentId(instrumentId)
 
   if (!companyData) {
-    throw new Error(`No data found for company with symbol ${symbol}`)
+    notFound()
   }
 
   const headerData: CompanyHeaderProps = {
