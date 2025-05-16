@@ -1,12 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import { HeaderKeys } from '../../types/common'
-
-// Mock the Next.js headers function
-jest.mock('next/headers', () => ({
-  headers: jest.fn(),
-}))
 
 // Since we can't directly test an async server component in Jest,
 // we'll create a client version of TopNav for testing purposes
