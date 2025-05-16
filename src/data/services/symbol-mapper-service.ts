@@ -61,6 +61,7 @@ class SymbolMapperService implements SymbolMapperInterface {
   private async initializeFromWatchedInstruments(): Promise<void> {
     const { data } = await this.client.query({
       query: GET_WATCHED_INSTRUMENTS,
+      fetchPolicy: 'cache-first',
     })
 
     const instruments = data.instruments as WatchedCompany[]

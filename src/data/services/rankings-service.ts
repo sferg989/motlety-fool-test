@@ -13,11 +13,12 @@ class RankingsService {
   async getTopRankings(): Promise<Ranking[]> {
     // Simulate a delay on the first load
     const delay = this.isFirstLoad ? 1000 : 0
-    this.isFirstLoad = false
+    
     return new Promise((resolve) => {
       setTimeout(async () => {
         const { data } = await this.client.query({
           query: GET_TOP_RANKINGS,
+          fetchPolicy: 'cache-first',
         })
         resolve(data.rankings)
       }, delay)

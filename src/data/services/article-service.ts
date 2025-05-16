@@ -18,6 +18,7 @@ class ArticlesService {
       setTimeout(async () => {
         const { data } = await this.client.query({
           query: GET_ARTICLE_LIST,
+          fetchPolicy: 'cache-first',
         })
         resolve(data.articles)
       }, delay)

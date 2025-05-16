@@ -8,21 +8,14 @@ import QuoteFundamentalsService from './quote-fundamentals-service'
 export type RankedCompanyData = Ranking & {
   instrument: Ranking['instrument'] & {
     quoteFundamentals: QuoteFundamentals
-    dailyRange: {
-      min: { amount: number }
-      max: { amount: number }
-    }
-    fiftyTwoWeekRange: {
-      min: { amount: number }
-      max: { amount: number }
-    }
+    dailyRange: Quote['dailyRange']
+    fiftyTwoWeekRange: Quote['fiftyTwoWeekRange']
   }
 }
 
 class RankedInstrumentService {
   private static instance: RankedInstrumentService | null = null
   private client: ApolloClient<NormalizedCacheObject>
-  private isFirstLoad: boolean = true
   private rankingsService: RankingsService
   private quoteFundamentalsService: QuoteFundamentalsService
   private quoteData: Quote
@@ -45,65 +38,50 @@ class RankedInstrumentService {
     RankedInstrumentService.instance = null
   }
 
-  private async simulateDelay<T>(callback: () => Promise<T>): Promise<T> {
-    const delay = this.isFirstLoad ? 1000 : 0
-    this.isFirstLoad = false
-    return new Promise((resolve) => {
-      setTimeout(async () => {
-        const result = await callback()
-        resolve(result)
-      }, delay)
-    })
-  }
-
   async getTopRankingsWithCompanyData(): Promise<RankedCompanyData[]> {
-    return this.simulateDelay(async () => {
-      const rankings = await this.rankingsService.getTopRankings()
-      const quoteFundamentals = await this.quoteFundamentalsService.getQuoteFundamentals()
+    const rankings = await this.rankingsService.getTopRankings()
+    const quoteFundamentals = await this.quoteFundamentalsService.getQuoteFundamentals()
 
-      return rankings.map((ranking) => ({
-        ...ranking,
-        instrument: {
-          ...ranking.instrument,
-          quoteFundamentals,
-          dailyRange: {
-            min: { amount: this.quoteData.dailyRange.min.amount },
-            max: { amount: this.quoteData.dailyRange.max.amount },
-          },
-          fiftyTwoWeekRange: {
-            min: { amount: this.quoteData.fiftyTwoWeekRange.min.amount },
-            max: { amount: this.quoteData.fiftyTwoWeekRange.max.amount },
-          },
+    return rankings.map((ranking) => ({
+      ...ranking,
+      instrument: {
+        ...ranking.instrument,
+        quoteFundamentals,
+        dailyRange: {
+          min: { amount: this.quoteData.dailyRange.min.amount },
+          max: { amount: this.quoteData.dailyRange.max.amount },
         },
-      }))
-    })
+        fiftyTwoWeekRange: {
+          min: { amount: this.quoteData.fiftyTwoWeekRange.min.amount },
+          max: { amount: this.quoteData.fiftyTwoWeekRange.max.amount },
+        },
+      },
+    }))
   }
 
   async getRankedCompanyDataByInstrumentId(instrumentId: number): Promise<RankedCompanyData | null> {
-    return this.simulateDelay(async () => {
-      const rankings = await this.rankingsService.getTopRankings()
-      const quoteFundamentals = await this.quoteFundamentalsService.getQuoteFundamentals()
+    const rankings = await this.rankingsService.getTopRankings()
+    const quoteFundamentals = await this.quoteFundamentalsService.getQuoteFundamentals()
 
-      const company = rankings.find((ranking) => ranking.instrument.instrumentId === instrumentId)
+    const company = rankings.find((ranking) => ranking.instrument.instrumentId === instrumentId)
 
-      if (!company) return null
+    if (!company) return null
 
-      return {
-        ...company,
-        instrument: {
-          ...company.instrument,
-          quoteFundamentals,
-          dailyRange: {
-            min: { amount: this.quoteData.dailyRange.min.amount },
-            max: { amount: this.quoteData.dailyRange.max.amount },
-          },
-          fiftyTwoWeekRange: {
-            min: { amount: this.quoteData.fiftyTwoWeekRange.min.amount },
-            max: { amount: this.quoteData.fiftyTwoWeekRange.max.amount },
-          },
+    return {
+      ...company,
+      instrument: {
+        ...company.instrument,
+        quoteFundamentals,
+        dailyRange: {
+          min: { amount: this.quoteData.dailyRange.min.amount },
+          max: { amount: this.quoteData.dailyRange.max.amount },
         },
-      }
-    })
+        fiftyTwoWeekRange: {
+          min: { amount: this.quoteData.fiftyTwoWeekRange.min.amount },
+          max: { amount: this.quoteData.fiftyTwoWeekRange.max.amount },
+        },
+      },
+    }
   }
 }
 

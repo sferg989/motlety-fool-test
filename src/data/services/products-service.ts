@@ -17,6 +17,7 @@ class ProductsService {
       setTimeout(async () => {
         const { data } = await this.client.query({
           query: GET_PRODUCTS,
+          fetchPolicy: 'cache-first',
         })
         resolve(data.products)
       }, delay)
