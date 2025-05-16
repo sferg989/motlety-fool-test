@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 interface CompanyLinkProps {
   symbol: string
@@ -7,7 +8,7 @@ interface CompanyLinkProps {
 
 const CompanyLink: React.FC<CompanyLinkProps> = ({ symbol, exchange }) => {
   return (
-    <a
+    <Link
       href={`/company/${exchange}/${symbol}`}
       className="inline-block px-4 py-2 text-cyan-100
       hover:bg-cyan-500 hover:text-black
@@ -15,7 +16,7 @@ const CompanyLink: React.FC<CompanyLinkProps> = ({ symbol, exchange }) => {
       animate-pulse"
     >
       {symbol}
-    </a>
+    </Link>
   )
 }
 

@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import type { ArticleListItem } from 'src/types/articles'
 
 type ArticleListProps = {
@@ -10,9 +11,9 @@ const ArticleList = ({ articles }: ArticleListProps) => {
       {articles.map((article) => (
         <div key={article.uuid} className="mb-8">
           <h2 className="text-2xl font-bold">
-            <a href={`/article/${article.path}`} className="hover:text-white">
+            <Link href={`/article/${article.path}`} className="hover:text-white">
               {article.headline}
-            </a>
+            </Link>
           </h2>
           <p>{article.promo}</p>
         </div>

@@ -31,7 +31,3 @@ export type Product = {
   community_id: number | null
   modified: string
 }
-
-export enum HeaderKeys {
-  CURRENT_PATH = 'x-current-path',
-}

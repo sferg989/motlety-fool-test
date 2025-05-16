@@ -1,9 +1,10 @@
-import { headers } from 'next/headers'
-import { HeaderKeys } from '../../types/common'
+'use client'
 
-const TopNav = async () => {
-  const headersList = await headers()
-  const pathname = headersList.get(HeaderKeys.CURRENT_PATH) || '/'
+import { usePathname } from 'next/navigation'
+import Link from 'next/link'
+
+const TopNavClient = () => {
+  const pathname = usePathname()
   const isHomePage = pathname === '/'
 
   // Common UFO UI elements
@@ -48,13 +49,18 @@ const TopNav = async () => {
             {ufoElements}
           </div>
         ) : (
-          <a href="/" className="group relative inline-flex items-center justify-center p-8 hover:-translate-y-1 transition-transform duration-300" aria-label="Home">
+          <Link href="/" className="group relative inline-flex items-center justify-center p-8 hover:-translate-y-1 transition-transform duration-300" aria-label="Home">
             {ufoElements}
-          </a>
+          </Link>
         )}
       </div>
     </nav>
   )
+}
+
+// Server component wrapper
+const TopNav = () => {
+  return <TopNavClient />
 }
 
 export default TopNav
