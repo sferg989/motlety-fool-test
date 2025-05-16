@@ -1,3 +1,4 @@
+'use cache'
 import WatchButton from '~components/ui/watchButton'
 import ArticlesService from '~data/services/article-service'
 import apolloServerClient from '~lib/apollo-server-client'

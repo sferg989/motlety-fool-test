@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "command": "npm run prettier:fix && npm run all",
+      "problemMatcher": [],
+      "label": "npm: prettier:fix and all",
+      "detail": "Runs prettier:fix and then test:coverage, prettier:check, type-check, and lint"
+    },
+    {
+      "type": "shell",
+      "command": "npm run prettier:fix && npm run all && git add . && git commit --amend --no-edit && git push origin $(git branch --show-current) --force",
+      "problemMatcher": [],
+      "label": "Prettify and Force Push",
+      "detail": "Formats code, runs tests, amends the current commit and force pushes"
+    }
+  ]
+}

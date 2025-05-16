@@ -1,3 +1,4 @@
+'use cache'
 import apolloServerClient from 'src/lib/apollo-server-client'
 import RankingsService from '~data/services/rankings-service'
 import ArticlesService from '~data/services/article-service'

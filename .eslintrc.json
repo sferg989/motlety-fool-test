@@ -3,7 +3,8 @@
   "rules": {
     "complexity": ["error", 7],
     "max-len": ["error", { "code": 175 }],
-    "max-lines": ["error", 175]
+    "max-lines": ["error", 175],
+    "@next/next/no-html-link-for-pages": "off"
   },
   "ignorePatterns": ["src/data/queries.js"]
 }

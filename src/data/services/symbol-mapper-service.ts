@@ -1,3 +1,4 @@
+'use cache'
 import { ApolloClient, NormalizedCacheObject } from '@apollo/client'
 import { GET_WATCHED_INSTRUMENTS } from '~data/queries'
 import type { WatchedCompany } from '~types/company'

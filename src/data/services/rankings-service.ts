@@ -13,7 +13,7 @@ class RankingsService {
   async getTopRankings(): Promise<Ranking[]> {
     // Simulate a delay on the first load
     const delay = this.isFirstLoad ? 1000 : 0
-    
+
     return new Promise((resolve) => {
       setTimeout(async () => {
         const { data } = await this.client.query({
