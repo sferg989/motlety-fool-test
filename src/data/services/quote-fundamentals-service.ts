@@ -30,8 +30,11 @@ class QuoteFundamentalsService {
     const { data: companyData } = await this.client.query({
       query: GET_COMPANY_DATA,
       fetchPolicy: 'cache-first',
+      variables: {
+        instrumentId: 289026,
+      },
     })
-    this.cachedFundamentals = companyData.instrument.instrument.quoteFundamentals as QuoteFundamentals
+    this.cachedFundamentals = companyData.instrument.quoteFundamentals
     return this.cachedFundamentals
   }
 }

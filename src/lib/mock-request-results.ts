@@ -49,10 +49,13 @@ const mocks = [
   {
     request: {
       query: GET_COMPANY_DATA,
+      variables: {
+        instrumentId: 289026,
+      },
     },
     result: {
       data: {
-        instrument: COMPANY_DATA,
+        instrument: COMPANY_DATA.instrument,
       },
     },
   },

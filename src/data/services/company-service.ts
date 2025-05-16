@@ -4,7 +4,6 @@ import type { WatchedCompany } from '~types/company'
 import WatchedInstrumentService from './watched-instrument-service'
 import RankedInstrumentService, { RankedCompanyData } from './ranked-instrument-service'
 
-// Common return type for company data from both services
 export type CompanyData = {
   instrumentId: number
   symbol: string

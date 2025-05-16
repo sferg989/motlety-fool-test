@@ -222,20 +222,6 @@ export const GET_COMPANY_DATA = gql`
             }
           }
         }
-        annual {
-          revenue {
-            data {
-              date
-            }
-          }
-        }
-        quarterly {
-          revenue {
-            data {
-              date
-            }
-          }
-        }
       }
       symbol
       exchange

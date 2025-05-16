@@ -29,9 +29,7 @@ describe('QuoteFundamentalsService', () => {
       query: jest.fn().mockResolvedValue({
         data: {
           instrument: {
-            instrument: {
-              quoteFundamentals: mockQuoteFundamentals,
-            },
+            quoteFundamentals: mockQuoteFundamentals,
           },
         },
       } as never),
@@ -52,6 +50,9 @@ describe('QuoteFundamentalsService', () => {
     expect(mockApolloClient.query).toHaveBeenCalledWith({
       query: GET_COMPANY_DATA,
       fetchPolicy: 'cache-first',
+      variables: {
+        instrumentId: 289026,
+      },
     })
 
     expect(result).toEqual(mockQuoteFundamentals)
