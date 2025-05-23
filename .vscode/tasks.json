@@ -3,7 +3,7 @@
   "tasks": [
     {
       "type": "shell",
-      "command": "npm run prettier:fix && npm run all",
+      "command": "export NVM_DIR=\"$HOME/.nvm\" && source \"$NVM_DIR/nvm.sh\" && nvm use && npm run prettier:fix && npm run all",
       "problemMatcher": [],
       "label": "npm: prettier:fix and all",
       "detail": "Runs prettier:fix and then test:coverage, prettier:check, type-check, and lint"

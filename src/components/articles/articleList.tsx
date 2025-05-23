@@ -39,7 +39,7 @@ const ArticleList = ({ articles }: ArticleListProps) => {
               {article.headline}
               {isPending && loadingArticleId === article.uuid && (
                 <span className="ml-2">
-                  <LoadingSpinner />
+                  <LoadingSpinner size="small" variant="circle" />
                 </span>
               )}
             </Link>

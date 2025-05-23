@@ -47,7 +47,7 @@ const useWatchedCompanies = () => {
           initializeFromApi(data.instruments)
         }
         resolve(result)
-      }, 1000)
+      }, 10)
     })
   }
 

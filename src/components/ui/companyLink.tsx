@@ -36,7 +36,7 @@ const CompanyLink: React.FC<CompanyLinkProps> = ({ symbol, exchange }) => {
       {symbol}
       {isPending && (
         <span className="absolute inset-0 flex items-center justify-center">
-          <LoadingSpinner />
+          <LoadingSpinner size="small" />
         </span>
       )}
     </Link>

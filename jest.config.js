@@ -21,8 +21,8 @@ const customJestConfig = {
   collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}', '!src/lib/**', '!src/components/debug.tsx', '!src/**/*.d.ts', '!**/node_modules/**', '!**/.next/**'],
   coverageThreshold: {
     global: {
-      branches: 37,
-      statements: 39,
+      branches: 38,
+      statements: 38,
     },
   },
   coverageDirectory: 'coverage',

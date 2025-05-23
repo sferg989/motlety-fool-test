@@ -1,10 +1,32 @@
+'use client'
+
 interface LoadingSpinnerProps {
+  variant?: 'spinner' | 'circle'
+  size?: 'small' | 'medium' | 'large'
   className?: string
+  color?: string
 }
 
-const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({ className = 'h-4 w-4 text-cyan-500' }) => {
+const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({ variant = 'spinner', size = 'medium', color = 'text-cyan-500', className = '' }) => {
+  const sizeClasses = {
+    small: 'h-4 w-4',
+    medium: 'h-8 w-8',
+    large: 'h-12 w-12',
+  }[size]
+
+  const baseClass = `animate-spin ${sizeClasses} ${color} ${className}`
+
+  if (variant === 'circle') {
+    const borderSize = size === 'large' ? 'border-4' : 'border-2'
+    return (
+      <div className="flex justify-center items-center">
+        <div className={`${baseClass} border-t-transparent border-solid rounded-full ${borderSize}`}></div>
+      </div>
+    )
+  }
+
   return (
-    <svg className={`animate-spin ${className}`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <svg className={baseClass} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
       <path
         className="opacity-75"

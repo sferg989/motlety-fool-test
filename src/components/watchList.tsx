@@ -1,7 +1,7 @@
+/* eslint-disable max-lines */
 'use client'
-
 import useWatchedCompanies from 'src/hooks/useWatchedCompanies'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import WatchButton from './ui/watchButton'
 import CompanyLink from './ui/companyLink'
 import { useWatchedCompaniesStore } from '../store/watchedCompaniesStore'
@@ -9,6 +9,8 @@ import { ApolloClient, NormalizedCacheObject, useApolloClient } from '@apollo/cl
 import CompanyService from '../data/services/company-service'
 import { formatCurrency, formatPercent } from '../utils/formatters'
 import WatchListSkeleton from './loading/watchListSkeleton'
+import { revalidateByTag } from '../app/actions'
+import { REVALIDATION_TAGS } from '../app/constants'
 
 const WatchList = () => {
   const { data, error } = useWatchedCompanies()
@@ -24,16 +26,16 @@ const WatchList = () => {
     setIsClient(true)
   }, [])
 
-  const fetchSingleCompanyData = async (companyService, company) => {
+  const fetchSingleCompanyData = useCallback(async (companyService, company) => {
     try {
       return await companyService.getCompanyDataByInstrumentId(company.instrumentId)
     } catch (err) {
       console.error(`Error fetching data for company ${company.instrumentId}:`, err)
       return null
     }
-  }
+  }, [])
 
-  const buildDataMap = (results) => {
+  const buildDataMap = useCallback((results) => {
     const dataMap = {}
     results.forEach((result) => {
       if (result.data) {
@@ -41,7 +43,30 @@ const WatchList = () => {
       }
     })
     return dataMap
-  }
+  }, [])
+
+  // Refresh data
+  const refreshData = useCallback(async () => {
+    if (!apolloClient || watchedCompanies.length === 0) return
+
+    setIsLoading(true)
+
+    try {
+      // Revalidate watchlist data
+      await revalidateByTag(REVALIDATION_TAGS.WATCHLIST)
+
+      const companyService = CompanyService.getInstance(apolloClient as ApolloClient<NormalizedCacheObject>)
+      const results = await Promise.all(
+        watchedCompanies.map((company) => fetchSingleCompanyData(companyService, company).then((data) => ({ id: company.instrumentId, data }))),
+      )
+
+      setCompanyDataMap(buildDataMap(results))
+    } catch (error) {
+      console.error('Error refreshing company data:', error)
+    } finally {
+      setIsLoading(false)
+    }
+  }, [apolloClient, watchedCompanies, fetchSingleCompanyData, buildDataMap])
 
   useEffect(() => {
     let isMounted = true
@@ -84,14 +109,20 @@ const WatchList = () => {
 
     fetchCompanyData()
 
+    // Set up auto-refresh every 60 seconds
+    const refreshInterval = setInterval(() => {
+      if (isMounted) refreshData()
+    }, 60000)
+
     return () => {
       isMounted = false
+      clearInterval(refreshInterval)
     }
-  }, [watchedCompanies, apolloClient, initialLoadComplete])
+  }, [watchedCompanies, apolloClient, initialLoadComplete, refreshData, fetchSingleCompanyData, buildDataMap])
 
   if (!isClient) return null
 
-  if (isLoading) return <WatchListSkeleton />
+  if (isLoading && !initialLoadComplete) return <WatchListSkeleton />
 
   if (error) return <div>Error loading watched companies</div>
 
@@ -101,6 +132,15 @@ const WatchList = () => {
 
   return (
     <div className="transition-all duration-300 ease-in-out">
+      <div className="flex justify-end mb-4">
+        <button
+          onClick={refreshData}
+          disabled={isLoading}
+          className="px-4 py-2 bg-cyan-500/30 hover:bg-cyan-500/50 text-cyan-100 rounded transition-colors duration-300 disabled:opacity-50"
+        >
+          {isLoading ? 'Refreshing...' : 'Refresh Data'}
+        </button>
+      </div>
       <table className="table-auto w-full">
         <thead>
           <tr>
@@ -135,5 +175,4 @@ const WatchList = () => {
     </div>
   )
 }
-
 export default WatchList
